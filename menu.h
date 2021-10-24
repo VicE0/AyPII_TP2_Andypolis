@@ -7,16 +7,18 @@
 #include "mapa.h";
 
 
-const int OPCIONES_VALIDAS = 7;
-const int LISTAR_MATERIALES = 1;
-const int CONSTRUIR_EDIFICIO = 2;
-const int LISTAR_EDIFICIOS_CONSTRUIDOS = 3;
-const int LISTAR_TODOS_EDIFICIOS = 4;
-const int DEMOLER_EDIFICIO = 5;
-const int SALIR = 6;
+const int OPCIONES_VALIDAS = 11;
+const int CONSTRUIR_EDIFICIO = 1;
+const int LISTAR_EDIFICIOS_CONSTRUIDOS = 2;
+const int LISTAR_TODOS_EDIFICIOS = 3;
+const int DEMOLER_EDIFICIO = 4;
+const int MOSTRAR_MAPA = 5;
+const int CONSULTAR_COORDENADA = 6;
+const int MOSTRAR_INVENTARIO = 7;
+const int RECOLECTAR_RECURSOS = 8;
+const int LLUVIA_RECURSOS = 9;
+const int SALIR = 10;
 const int ERROR = -1;
-//VER ENUNCIADO
-
 
 
 //pre: -

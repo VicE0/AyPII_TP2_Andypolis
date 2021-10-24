@@ -13,12 +13,16 @@ void mostrar_menu()
     cout << "\n\n\t\t\tMenu de Opciones" << endl;
     cout << "\n\n\t\t\tQue desea hacer?" << endl;
     cout << "\t\t\t----------------" << endl;
-    cout << "\n\t1. Listar materiales" << endl;
-    cout << "\t2. Construir edificio" << endl;
-    cout << "\t3. Listar edificios construidos" << endl;
-    cout << "\t4. Listar todos los edificios " << endl;
-    cout << "\t5. Demoler un edificio" << endl;
-    cout << "\t6. Guardar y salir" << endl;
+    cout << "\n\t1. Construir edificio por nombre" << endl;
+    cout << "\t2. Listar los edificios construidos" << endl;
+    cout << "\t3. Listar todos los edificios" << endl;
+    cout << "\t4. Demoler un edificio por coordenada " << endl;
+    cout << "\t5. Mostrar mapa" << endl;
+    cout << "\t6. Consultar coordenada" << endl;
+    cout << "\t7. Mostrar inventario" << endl;
+    cout << "\t8. Recolectar recursos producidos" << endl;
+    cout << "\t9. Lluvia de recursos" << endl;
+    cout << "\t10. Guardar y salir" << endl;
 
 }
 
