@@ -1,3 +1,11 @@
+//***********************************************
+//  Algoritmos y Programación II
+//  TP-1 ANDYPOLIS
+//  limpiar_pantalla.h
+//  108400 - Espeche, Victoria
+//***********************************************
+
+
 //detecta el sistema operativo en uso y elige el comando a usar para limpiar la pantalla
 #ifdef __linux__
 #define LIMPIAR_PANTALLA "clear"

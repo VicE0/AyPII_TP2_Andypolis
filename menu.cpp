@@ -27,7 +27,7 @@ void mostrar_menu()
 }
 
 
-int pedir_opcion()
+int pedir_opcion_tp2()
 {
     int opcion_elegida = ERROR;
     cout << "\nOPCION => ";
@@ -37,7 +37,7 @@ int pedir_opcion()
 }
 
 
-void validar_opcion_elegida(int &opcion_elegida)
+void validar_opcion_elegida_tp2(int &opcion_elegida)
 {
     bool es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
     while(!es_opcion_valida)

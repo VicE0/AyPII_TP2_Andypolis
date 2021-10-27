@@ -13,6 +13,7 @@
 #include <iostream>
 
 const int OPCIONES_VALIDAS = 7;
+const int MIN_MATERIALES = 3;
 const std::string PATH_MATERIALES = "materiales.txt";
 const std::string  PATH_EDIFICIOS = "edificios.txt";
 

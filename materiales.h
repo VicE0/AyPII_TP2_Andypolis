@@ -18,8 +18,6 @@ class Materiales
         int restar_material();
         int sumar_material();
         int lluvia_materiales();
-
-
 };
 
 
