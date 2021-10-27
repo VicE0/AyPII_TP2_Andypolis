@@ -32,7 +32,7 @@ int pedir_opcion_tp2()
     cout << "\nOPCION => ";
     cin >> opcion_elegida;
 
-    return opcion_elegida;
+    return  opcion_elegida;
 }
 
 
