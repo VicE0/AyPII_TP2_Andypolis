@@ -14,7 +14,8 @@ void cargarMateriales(Obra* obra, string nombreArchivoMateriales){
 	string nombre, cantMaterial;
 	Material* material;
 
-	while(archivoMateriales >> nombre){
+	while(archivoMateriales >> nombre)
+	{
 		archivoMateriales >> cantMaterial;
 		material = new Material;
 		material->nombre = nombre;
