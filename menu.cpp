@@ -2,6 +2,8 @@
 #include <fstream>
 
 #include "menu.h"
+#include "Inventario.h"
+#include "Ciudad.h"
 
 using namespace std;
 
@@ -10,7 +12,7 @@ void mostrar_menu()
 {
     
     cout << "\n\n\t\t\tMenu de Opciones" << endl;
-    cout << "\n\n\t\t\tQue desea hacer?" << endl;
+    cout << "\n\t\t\tQue desea hacer?" << endl;
     cout << "\t\t\t----------------" << endl;
     cout << "\n\t1. Construir edificio por nombre" << endl;
     cout << "\t2. Listar los edificios construidos" << endl;
@@ -31,7 +33,6 @@ int pedir_opcion()
     int opcion_elegida = ERROR;
     cout << "\nOPCION => ";
     cin >> opcion_elegida;
-
     return  opcion_elegida;
 }
 
@@ -50,6 +51,8 @@ void validar_opcion_elegida(int &opcion_elegida)
 
 void procesar_opcion(int opcion) 
 {
+    Inventario inventario;
+    Ciudad ciudad;
 
     switch (opcion) 
     {
@@ -57,9 +60,11 @@ void procesar_opcion(int opcion)
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
+            ciudad.mostrar_edificios_construidos();
             break;
 
         case LISTAR_TODOS_EDIFICIOS:
+            ciudad.mostrar_totalidad_edificios();
             break;
 
         case DEMOLER_EDIFICIO:
@@ -72,6 +77,7 @@ void procesar_opcion(int opcion)
             break;
 
         case MOSTRAR_INVENTARIO:
+            inventario.mostrar_materiales();
             break;
         
         case RECOLECTAR_RECURSOS:
