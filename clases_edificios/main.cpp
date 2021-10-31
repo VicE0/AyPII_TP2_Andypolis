@@ -3,6 +3,6 @@
 int main ()
 {
     Ciudad ciudad;
-    ciudad.mostrar_totalidad_edificios();
+    ciudad.mostrar_edificios_construidos();
     return 0;
 }
