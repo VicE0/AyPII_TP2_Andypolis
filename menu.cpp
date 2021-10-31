@@ -26,7 +26,7 @@ void mostrar_menu()
 }
 
 
-int pedir_opcion_tp2()
+int pedir_opcion()
 {
     int opcion_elegida = ERROR;
     cout << "\nOPCION => ";
@@ -36,7 +36,7 @@ int pedir_opcion_tp2()
 }
 
 
-void validar_opcion_elegida_tp2(int &opcion_elegida)
+void validar_opcion_elegida(int &opcion_elegida)
 {
     bool es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
     while(!es_opcion_valida)
@@ -45,5 +45,45 @@ void validar_opcion_elegida_tp2(int &opcion_elegida)
         cin >> opcion_elegida;
         es_opcion_valida = opcion_elegida > 0 && opcion_elegida <= OPCIONES_VALIDAS;
 
+    }
+}
+
+void procesar_opcion(int opcion) 
+{
+
+    switch (opcion) 
+    {
+        case CONSTRUIR_EDIFICIO:
+            break;
+
+        case LISTAR_EDIFICIOS_CONSTRUIDOS:
+            break;
+
+        case LISTAR_TODOS_EDIFICIOS:
+            break;
+
+        case DEMOLER_EDIFICIO:
+            break;
+
+        case MOSTRAR_MAPA:
+            break;
+
+        case CONSULTAR_COORDENADA:
+            break;
+
+        case MOSTRAR_INVENTARIO:
+            break;
+        
+        case RECOLECTAR_RECURSOS:
+            break;
+
+        case LLUVIA_RECURSOS:
+            break;
+
+        case SALIR:
+            break;
+
+        default:
+            cout << "Error - opcion invalida";
     }
 }

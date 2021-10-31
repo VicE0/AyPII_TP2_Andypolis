@@ -1,11 +1,7 @@
-#ifndef __MENU_H__
-#define __MENU_H__
+#ifndef MENU_H
+#define MENU_H
 
-#include "materiales.h"
-#include "edificios.h"
-#include "construcciones.h"
-#include "mapa.h"
-
+//incluir archivos .h
 
 const int OPCIONES_VALIDAS = 11;
 const int CONSTRUIR_EDIFICIO = 1;
@@ -27,14 +23,18 @@ void mostrar_menu();
 
 //Precondiciones: -
 //Postcondiciones: Le solicita al usuario que ingrese el numero de la opcion que desea seleccionar.
-int pedir_opcion_tp2();
+int pedir_opcion();
 
 //pre: La opcion_elegida es valida
 //post: Realiza la opcion pedida
-void procesar_opcion_tp2();
+void procesar_opcion();
 
 //Precondiciones: Recibe la opcion elegida.
 //Postcondiciones: Verifica que la opcion sea un numero entre 0 y el valor de OPCIONES_VALIDAS.
-void validar_opcion_elegida_tp2(int &opcion_elegida);
+void validar_opcion_elegida(int &opcion_elegida);
 
-#endif //__MENU__
+//Precondiciones: La opcion es valida.
+//Postcondiciones: Realiza la opcion indicada.
+void procesar_opcion(int opcion);
+
+#endif //MENU_H
