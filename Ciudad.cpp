@@ -1,8 +1,12 @@
 #include "Ciudad.h"
-#include "Material.h"
+#include "Inventario.h"
 #include <iostream>
 #include <fstream>
 #include <string>
+
+const string PIEDRA = "piedra";
+const string MADERA = "madera";
+const string METAL = "metal";
 
 using namespace std;
 
@@ -97,28 +101,12 @@ void Ciudad::mostrar_edificios_construidos()
 
 
 // --------------------------------------------------------------------
-
-bool Ciudad::edificio_valido()
-{
-    int posicion = 0;
-
-    while(posicion < cantidad_edificios)
-    {
-        posicion++;
-    }
-
-    if (posicion >= cantidad_edificios)
-    {
-        return false;
-    }
-    return true;
-}
   
-int Ciudad::obtener_posicion()
+int Ciudad::obtener_posicion(string ingresar_edificio_construir)
 {
     int posicion = 0;
 
-    while (posicion < cantidad_edificios)
+    while ((posicion < cantidad_edificios) && (ingresar_edificio_construir != this -> edificios[posicion] -> nombre_edificio))
     {
         posicion++;
     }
@@ -133,43 +121,52 @@ int Ciudad::obtener_posicion()
 string Ciudad::pedir_edificio()
 {
     string ingresar_edificio;
-    cout << "Ingrese el edificio: " << endl;
+    cout << "Ingrese el edificio: ";
+    cin >> ingresar_edificio;
     return ingresar_edificio;
 }
 
 
-// void Ciudad::construir_edificio(int posicion) //agregar posicion a procesar opcion
-// {
-//     string decision;
+void Ciudad::construir_edificio(int posicion) 
+{
+    Inventario inventario;
+   
+    string decision;
+    
+    int piedra = inventario.obtener_material(PIEDRA);
+    int madera = inventario.obtener_material(MADERA);
+    int metal = inventario.obtener_material(METAL);
+ 
+    if (this -> edificios[posicion] -> cantidad_piedra > piedra ||
+        this -> edificios[posicion] -> cantidad_madera > madera ||
+        this -> edificios[posicion] -> cantidad_metal > metal)
+    {
+        cout << "No hay materiales suficientes para completar la construcción." << endl;
+    }
+    else if(this->edificios[posicion] -> cantidad_construidos == this -> edificios[posicion] ->maximo_permitidos)
+    {
+        cout << "Ya se alcanzó el máximo permitido de construccion" << endl;
+    }
+    else //falta coordenadas
+    {   
+       cout << "Estás seguro que deseas construir? [y/n]" << endl;
+       cin >> decision;
+        if(decision == "y")
+        {
+            this -> edificios[posicion] -> cantidad_construidos++;
 
-//     if (this -> edificios[posicion] -> cantidad_piedra > this -> materiales[0]-> cantidad ||
-//         this -> edificios[posicion] -> cantidad_madera > this -> materiales[1]-> cantidad ||
-//         this -> edificios[posicion] -> cantidad_metal> this -> materiales[2]-> cantidad)
-//     {
-//         cout << "No hay suficientes materiales para realizar la construccion"<<endl;
-//     }
+            piedra -= this -> edificios[posicion] -> cantidad_piedra;
+            madera -= this -> edificios[posicion] -> cantidad_madera;
+            metal -= this -> edificios[posicion] -> cantidad_metal;
 
-//     else if(this->edificios[posicion] -> cantidad_construidos == this -> edificios[posicion] ->maximo_permitidos)
-//     {
-//         cout << "Ya se alcanzó el máximo permitido de construccion" << endl;
-//     }
-//     else //falta coordenadas
-//     {   
-//         cout << "Estás seguro que deseas construir? [y/n]" << endl;
-//         cin >> decision;
-//         if(decision == "y")
-//         {
-//             this -> edificios[posicion] -> cantidad_construidos++;
-//             this -> materiales[0]-> cantidad -= this -> edificios[posicion] -> cantidad_piedra;
-//             this -> materiales[1]-> cantidad -= this -> edificios[posicion] -> cantidad_madera;
-//             this -> materiales[2]-> cantidad -= this -> edificios[posicion] -> cantidad_metal;
+            cout << "Edificio construido con éxito." <<endl;
+            cout << piedra << endl;
+            cout << this -> edificios[posicion] -> cantidad_construidos++ << endl;
+        }
+       else
+        {
+            cout << "No se realizó la construcción."<<endl;
+        }
 
-//             cout << "Edificio construido con éxito." <<endl;
-//         }
-//         else
-//         {
-//             cout << "No se realizó la construcción."<<endl;
-//         }
-
-//     }
-// }
+    }
+}

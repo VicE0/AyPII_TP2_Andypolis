@@ -58,3 +58,20 @@ void Inventario::mostrar_materiales()
     }
 
 }
+
+
+int Inventario::obtener_material(string nombre)
+{
+    Material* material = NULL;
+    int posicion = 0;
+    bool material_encontrado = false;
+    while (!material_encontrado && posicion < cantidad_materiales)
+    {
+        if (this -> materiales[posicion] -> nombre_material == nombre)
+        {
+            material = this -> materiales[posicion];
+        }
+        posicion ++;
+    }
+    return material->cantidad;
+}

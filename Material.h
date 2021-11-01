@@ -11,7 +11,7 @@ class Material
 {
     public:
         string nombre_material;
-        unsigned int cantidad;
+        int cantidad;
 
 };
 

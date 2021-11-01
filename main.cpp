@@ -17,6 +17,7 @@ int main()
     {
         procesar_opcion(opcion);
         mostrar_menu();
+        opcion = pedir_opcion();
         validar_opcion_elegida(opcion);
         
     }while(opcion != SALIR);
