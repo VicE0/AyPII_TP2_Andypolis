@@ -18,6 +18,7 @@ class Ciudad
     public:
         Ciudad();
         void leer_archivo_edificios();
+        void cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos);
         int obtener_posicion(string ingresar_edificio_construir);
         string pedir_edificio();
         void mostrar_totalidad_edificios();

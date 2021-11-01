@@ -45,6 +45,17 @@ void Ciudad::leer_archivo_edificios()
         archivo_edificios >> cantidad_metal;
         archivo_edificios >> maximo_permitidos;
 
+        this ->cargar_edificios(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos );
+
+    }
+    
+
+    archivo_edificios.close();
+}
+
+
+void Ciudad::cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos)
+{
         this -> edificios[cantidad_edificios] = new Edificio();
         this -> edificios[cantidad_edificios]-> nombre_edificio = nombre_edificio;
         this -> edificios[cantidad_edificios]-> cantidad_piedra = cantidad_piedra;
@@ -53,11 +64,6 @@ void Ciudad::leer_archivo_edificios()
         this -> edificios[cantidad_edificios]-> maximo_permitidos = maximo_permitidos;
   
         cantidad_edificios++;
-
-    }
-    
-    
-    archivo_edificios.close();
 }
 
 
