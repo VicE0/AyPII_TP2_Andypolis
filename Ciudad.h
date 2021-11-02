@@ -3,6 +3,7 @@
 
 #include "Edificio.h"
 #include "Inventario.h"
+#include "Aserradero.h"
 
 const int MAX_EDIFICIOS = 100;
 
@@ -22,8 +23,8 @@ class Ciudad
         int obtener_posicion(string ingresar_edificio_construir);
         string pedir_edificio();
         void mostrar_totalidad_edificios();
-        void mostrar_edificios_construidos();
-        void construir_edificio(int posicion);
+        // void mostrar_edificios_construidos();
+        void construir_edificio(int posicion, Aserradero &construidos_aserradero);
         void guardar_edificios();
 
 

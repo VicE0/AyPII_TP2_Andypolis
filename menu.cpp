@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "Inventario.h"
 #include "Ciudad.h"
+#include "Aserradero.h"
 
 using namespace std;
 
@@ -54,7 +55,9 @@ void procesar_opcion(int opcion)
 {
     Inventario inventario;
     Ciudad ciudad;
+    Aserradero construidos_aserradero;
     string ingresar_edificio_construir;
+    
     int posicion;
 
     switch (opcion) 
@@ -62,11 +65,11 @@ void procesar_opcion(int opcion)
         case CONSTRUIR_EDIFICIO:
             ingresar_edificio_construir = ciudad.pedir_edificio();
             posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
-            ciudad.construir_edificio(posicion);           
+            ciudad.construir_edificio(posicion, construidos_aserradero);           
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
-            ciudad.mostrar_edificios_construidos(); //no funciona
+            // ciudad.mostrar_edificios_construidos(); //no funciona
             break;
 
         case LISTAR_TODOS_EDIFICIOS:

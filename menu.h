@@ -1,8 +1,6 @@
 #ifndef MENU_H
 #define MENU_H
 
-//incluir archivos .h
-
 const int OPCIONES_VALIDAS = 11;
 const int CONSTRUIR_EDIFICIO = 1;
 const int LISTAR_EDIFICIOS_CONSTRUIDOS = 2;
