@@ -46,14 +46,16 @@ void Inventario::leer_archivo_materiales()
 
 void Inventario::mostrar_materiales(Inventario* datos_material)
 {   
+    cout << "\t      INVENTARIO:" << endl;
     for (int i = 0; i < cantidad_materiales; i++)
     {
         cout << "\n"; 
-        cout << "|-----------------------------------|" << endl;
-        cout << "	" << "MATERIAL: "<< datos_material -> materiales[i]-> nombre_material  << endl;
-        cout << "	" << "CANDTIDAD : "<< datos_material -> materiales[i]-> cantidad <<endl;
-        cout << "|-----------------------------------|" << endl;
+        cout << "\to-------------------o" << endl;
+        cout <<"\t   MATERIAL: "<< datos_material -> materiales[i]-> nombre_material  << endl;
         cout << "\n"; 
+        cout <<"\t   CANDTIDAD : "<< datos_material -> materiales[i]-> cantidad <<endl;
+        cout << "\to-------------------o" << endl; 
+ 
 
     }
 
