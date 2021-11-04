@@ -3,10 +3,6 @@
 
 #include "menu.h"
 
-const string PIEDRA = "piedra";
-const string MADERA = "madera";
-const string METAL = "metal";
-
 using namespace std;
 
 
@@ -52,10 +48,11 @@ void validar_opcion_elegida(int &opcion_elegida)
     }
 }
 
-void procesar_opcion(int opcion, Ciudad* datos_ciudad) 
+void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material) 
 {
     Inventario inventario;
     Ciudad ciudad;
+
     Aserradero aserradero;
     Fabrica fabrica;
     Escuela escuela;
@@ -65,12 +62,8 @@ void procesar_opcion(int opcion, Ciudad* datos_ciudad)
     Planta planta;
 
 
-    Material* datos_material = NULL;
     string ingresar_edificio_construir;
     
-    int piedra = inventario.obtener_material(PIEDRA,datos_material);
-    int madera = inventario.obtener_material(MADERA,datos_material);
-    int metal = inventario.obtener_material(METAL,datos_material);
     int posicion;
 
     switch (opcion) 
@@ -78,11 +71,11 @@ void procesar_opcion(int opcion, Ciudad* datos_ciudad)
         case CONSTRUIR_EDIFICIO:
             ingresar_edificio_construir = ciudad.pedir_edificio();
             posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
-            ciudad.construir_edificio(posicion,piedra, madera, metal, datos_ciudad);           
+            ciudad.construir_edificio(posicion, datos_material, datos_ciudad);           
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
-            // ciudad.mostrar_edificios_construidos(); //no funciona
+            ciudad.mostrar_edificios_construidos(datos_ciudad); 
             break;
 
         case LISTAR_TODOS_EDIFICIOS:
@@ -99,7 +92,7 @@ void procesar_opcion(int opcion, Ciudad* datos_ciudad)
             break;
 
         case MOSTRAR_INVENTARIO:
-            inventario.mostrar_materiales();
+            inventario.mostrar_materiales(datos_material);
             break;
         
         case RECOLECTAR_RECURSOS:

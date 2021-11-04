@@ -10,6 +10,7 @@ int main()
 {   
     int opcion = 0;
     Ciudad* datos_ciudad = new Ciudad;
+    Inventario* datos_material = new Inventario;
 
     Inventario inventario;
     Ciudad ciudad;
@@ -23,7 +24,7 @@ int main()
     validar_opcion_elegida(opcion);
     do
     {
-        procesar_opcion(opcion, datos_ciudad);
+        procesar_opcion(opcion, datos_ciudad, datos_material);
         mostrar_menu();
         opcion = pedir_opcion();
         validar_opcion_elegida(opcion);

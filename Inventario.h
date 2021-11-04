@@ -15,8 +15,8 @@ class Inventario
     public:
         Inventario();
         void leer_archivo_materiales();
-        int obtener_material(string material, Material* datos_material);
-        void mostrar_materiales();
+        Material* obtener_material(string material, Inventario* datos_material);
+        void mostrar_materiales(Inventario* datos_material);
         void guardar_materiales();
 
 };

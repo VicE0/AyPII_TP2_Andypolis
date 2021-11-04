@@ -31,14 +31,11 @@ class Ciudad
 
         string pedir_edificio();
 
-        void mostrar_totalidad_edificios( Ciudad* datos_ciudad);
+        void mostrar_totalidad_edificios(Ciudad* datos_ciudad);
 
-        // void mostrar_edificios_construidos();
+        void mostrar_edificios_construidos(Ciudad* datos_ciudad);
 
-        // void sumar_construidos(int posicion, Aserradero &aserradero,Fabrica &fabrica, Escuela &escuela,  
-        //                        Yacimiento &yacimiento, Mina &mina, Obelisco &obelisco, Planta &planta );
-
-        void construir_edificio(int posicion,int &piedra, int &madera, int &metal, Ciudad* datos_ciudad);
+        void construir_edificio(int posicion,Inventario* datos_material, Ciudad* datos_ciudad);
 
         void guardar_edificios();
 

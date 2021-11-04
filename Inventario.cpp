@@ -44,14 +44,14 @@ void Inventario::leer_archivo_materiales()
 
 
 
-void Inventario::mostrar_materiales()
+void Inventario::mostrar_materiales(Inventario* datos_material)
 {   
     for (int i = 0; i < cantidad_materiales; i++)
     {
         cout << "\n"; 
         cout << "|-----------------------------------|" << endl;
-        cout << "	" << "MATERIAL: "<< this -> materiales[i]-> nombre_material  << endl;
-        cout << "	" << "CANDTIDAD : "<< this -> materiales[i]-> cantidad <<endl;
+        cout << "	" << "MATERIAL: "<< datos_material -> materiales[i]-> nombre_material  << endl;
+        cout << "	" << "CANDTIDAD : "<< datos_material -> materiales[i]-> cantidad <<endl;
         cout << "|-----------------------------------|" << endl;
         cout << "\n"; 
 
@@ -59,18 +59,21 @@ void Inventario::mostrar_materiales()
 
 }
 
-
-int Inventario::obtener_material(string nombre, Material* datos_material)
+Material* Inventario::obtener_material(string nombre, Inventario* datos_material)
 {
+    Material* material = NULL;
+    
     int posicion = 0;
     bool material_encontrado = false;
-    while (!material_encontrado && posicion < cantidad_materiales)
+
+    while (!material_encontrado && posicion < datos_material -> cantidad_materiales)
     {
-        if (this -> materiales[posicion] -> nombre_material == nombre)
+        if (datos_material -> materiales[posicion] -> nombre_material == nombre)
         {
-            datos_material = this -> materiales[posicion];
+            material = datos_material -> materiales[posicion];
+            material_encontrado = true;
         }
         posicion ++;
     }
-    return datos_material -> cantidad;
+    return material;
 }
