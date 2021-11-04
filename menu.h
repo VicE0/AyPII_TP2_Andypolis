@@ -1,6 +1,17 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "Inventario.h"
+#include "Ciudad.h"
+
+#include "Aserradero.h"
+#include "Escuela.h"
+#include "Fabrica.h"
+#include "Obelisco.h"
+#include "Planta.h"
+#include "Yacimiento.h"
+#include "Mina.h"
+
 const int OPCIONES_VALIDAS = 11;
 const int CONSTRUIR_EDIFICIO = 1;
 const int LISTAR_EDIFICIOS_CONSTRUIDOS = 2;
@@ -33,6 +44,6 @@ void validar_opcion_elegida(int &opcion_elegida);
 
 //Precondiciones: La opcion es valida.
 //Postcondiciones: Realiza la opcion indicada.
-void procesar_opcion(int opcion);
+void procesar_opcion(int opcion, Ciudad* datos_ciudad);
 
 #endif //MENU_H

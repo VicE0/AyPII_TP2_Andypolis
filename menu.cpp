@@ -2,9 +2,10 @@
 #include <fstream>
 
 #include "menu.h"
-#include "Inventario.h"
-#include "Ciudad.h"
-#include "Aserradero.h"
+
+const string PIEDRA = "piedra";
+const string MADERA = "madera";
+const string METAL = "metal";
 
 using namespace std;
 
@@ -51,13 +52,25 @@ void validar_opcion_elegida(int &opcion_elegida)
     }
 }
 
-void procesar_opcion(int opcion) 
+void procesar_opcion(int opcion, Ciudad* datos_ciudad) 
 {
     Inventario inventario;
     Ciudad ciudad;
-    Aserradero construidos_aserradero;
+    Aserradero aserradero;
+    Fabrica fabrica;
+    Escuela escuela;
+    Yacimiento yacimiento;
+    Mina mina;
+    Obelisco obelisco;
+    Planta planta;
+
+
+    Material* datos_material = NULL;
     string ingresar_edificio_construir;
     
+    int piedra = inventario.obtener_material(PIEDRA,datos_material);
+    int madera = inventario.obtener_material(MADERA,datos_material);
+    int metal = inventario.obtener_material(METAL,datos_material);
     int posicion;
 
     switch (opcion) 
@@ -65,7 +78,7 @@ void procesar_opcion(int opcion)
         case CONSTRUIR_EDIFICIO:
             ingresar_edificio_construir = ciudad.pedir_edificio();
             posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
-            ciudad.construir_edificio(posicion, construidos_aserradero);           
+            ciudad.construir_edificio(posicion,piedra, madera, metal, datos_ciudad);           
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
@@ -73,7 +86,7 @@ void procesar_opcion(int opcion)
             break;
 
         case LISTAR_TODOS_EDIFICIOS:
-            ciudad.mostrar_totalidad_edificios();
+            ciudad.mostrar_totalidad_edificios(datos_ciudad);
             break;
 
         case DEMOLER_EDIFICIO:

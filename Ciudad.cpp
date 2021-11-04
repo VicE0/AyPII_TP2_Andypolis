@@ -1,6 +1,5 @@
 #include "Ciudad.h"
-#include "Inventario.h"
-#include "Aserradero.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -30,9 +29,7 @@ void Ciudad::leer_archivo_edificios()
     int cantidad_madera;
     int cantidad_metal;
     int maximo_permitidos;
-
-
-
+   
     if(!archivo_edificios)
     {
         cout<<"No se pudo leer el archivo: "<<PATH_EDIFICIOS<<endl;
@@ -46,7 +43,7 @@ void Ciudad::leer_archivo_edificios()
         archivo_edificios >> cantidad_metal;
         archivo_edificios >> maximo_permitidos;
 
-        this ->cargar_edificios(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos );
+        this ->cargar_edificios(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
 
     }
     
@@ -57,29 +54,30 @@ void Ciudad::leer_archivo_edificios()
 
 void Ciudad::cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos)
 {
+
         this -> edificios[cantidad_edificios] = new Edificio();
         this -> edificios[cantidad_edificios]-> nombre_edificio = nombre_edificio;
         this -> edificios[cantidad_edificios]-> cantidad_piedra = cantidad_piedra;
         this -> edificios[cantidad_edificios]-> cantidad_madera = cantidad_madera;
         this -> edificios[cantidad_edificios]-> cantidad_metal = cantidad_metal;
         this -> edificios[cantidad_edificios]-> maximo_permitidos = maximo_permitidos;
-  
+        this -> edificios[cantidad_edificios] -> cantidad_construidos = 0;
         cantidad_edificios++;
 }
 
 
-void Ciudad::mostrar_totalidad_edificios()
+void Ciudad::mostrar_totalidad_edificios(Ciudad* datos_ciudad)
 {   
     for (int i = 0; i < cantidad_edificios; i++)
     {
         cout << "\n"; 
         cout << "|-----------------------------------|" << endl;
-        cout << "\t"<< "EDIFICIO: "<< this -> edificios[i]-> nombre_edificio  << endl;
-        cout << "\t"<< "PIEDRA : "<< this -> edificios[i]-> cantidad_piedra << " unidades necesarias" <<endl;
-        cout << "\t"<< "MADERA : "<< this -> edificios[i]-> cantidad_madera << " unidades necesarias" <<endl;
-        cout << "\t"<< "METAL : "<< this -> edificios[i]-> cantidad_metal << " unidades necesarias" <<endl;
-        // cout << "\t"<< "CONSTRUIDOS: " << this -> edificios[i] -> cantidad_construidos <<endl;
-        cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (this -> edificios[i]-> maximo_permitidos)<<endl; 
+        cout << "\t"<< "EDIFICIO: "<< datos_ciudad -> edificios[i]-> nombre_edificio  << endl;
+        cout << "\t"<< "PIEDRA : "<< datos_ciudad -> edificios[i]-> cantidad_piedra << " unidades necesarias" <<endl;
+        cout << "\t"<< "MADERA : "<< datos_ciudad -> edificios[i]-> cantidad_madera << " unidades necesarias" <<endl;
+        cout << "\t"<< "METAL : "<< datos_ciudad -> edificios[i]-> cantidad_metal << " unidades necesarias" <<endl;
+        cout << "\t"<< "CONSTRUIDOS: " << datos_ciudad -> edificios[i] -> cantidad_construidos <<endl;
+        cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (datos_ciudad -> edificios[i]-> maximo_permitidos)<<endl; 
         cout << "|-----------------------------------|" << endl;
         cout << "\n"; 
 
@@ -134,41 +132,41 @@ string Ciudad::pedir_edificio()
 }
 
 
-void Ciudad::construir_edificio(int posicion, Aserradero &construidos_aserradero ) 
+void Ciudad::construir_edificio(int posicion,int &piedra, int &madera, int &metal, Ciudad* datos_ciudad) 
 {
     Inventario inventario;
-   
+    
+  
     string decision;
     
-    int piedra = inventario.obtener_material(PIEDRA);
-    int madera = inventario.obtener_material(MADERA);
-    int metal = inventario.obtener_material(METAL);
- 
-    if (this -> edificios[posicion] -> cantidad_piedra > piedra ||
-        this -> edificios[posicion] -> cantidad_madera > madera ||
-        this -> edificios[posicion] -> cantidad_metal > metal)
+    if (datos_ciudad -> edificios[posicion] -> cantidad_piedra > piedra ||
+        datos_ciudad -> edificios[posicion] -> cantidad_madera > madera ||
+        datos_ciudad -> edificios[posicion] -> cantidad_metal > metal)
     {
         cout << "No hay materiales suficientes para completar la construcción." << endl;
     }
-    else if(construidos_aserradero.aserraderos_construidos == this -> edificios[posicion] ->maximo_permitidos)
+    else if(datos_ciudad -> edificios[posicion] -> cantidad_construidos == datos_ciudad -> edificios[posicion] -> maximo_permitidos)
     {
         cout << "Ya se alcanzó el máximo permitido de construccion" << endl;
     }
     else //falta coordenadas
     {   
+    cout << datos_ciudad -> edificios[posicion] -> cantidad_piedra << "piedra" << endl;
        cout << "Estás seguro que deseas construir? [y/n]" << endl;
        cin >> decision;
         if(decision == "y")
         {
-            
-            piedra -= this -> edificios[posicion] -> cantidad_piedra;
-            madera -= this -> edificios[posicion] -> cantidad_madera;
-            metal -= this -> edificios[posicion] -> cantidad_metal;
+            piedra -= datos_ciudad -> edificios[posicion] -> cantidad_piedra;
+            madera -= datos_ciudad -> edificios[posicion] -> cantidad_madera;
+            metal -= datos_ciudad -> edificios[posicion] -> cantidad_metal;
 
             cout << "Edificio construido con éxito." <<endl;
-            cout << piedra << endl;
-            construidos_aserradero.aserraderos_construidos ++ ;
-            cout << construidos_aserradero.aserraderos_construidos << endl;
+     
+            datos_ciudad -> edificios[posicion] -> cantidad_construidos++;
+            cout << datos_ciudad -> edificios[posicion] -> cantidad_construidos << "construidos" << endl;
+          
+            // sumar_construidos(posicion, aserradero, fabrica, escuela, yacimiento, mina, obelisco, planta);
+
         }
        else
         {
@@ -178,4 +176,39 @@ void Ciudad::construir_edificio(int posicion, Aserradero &construidos_aserradero
     }
 }
 
-//creo que se va a necesitar una funcion construir para cada edificio nooooo
+// void Ciudad::sumar_construidos(int posicion, Aserradero &aserradero,Fabrica &fabrica, Escuela &escuela,  
+//                        Yacimiento &yacimiento, Mina &mina, Obelisco &obelisco, Planta &planta )
+// {
+//     switch(posicion)
+//     {
+//         case 0:
+//             // aserradero.aserraderos_construidos ++;
+//             // cout << aserradero.aserraderos_construidos<<endl;
+//             break;
+
+//         case 1:
+//             fabrica.fabricas_construidas ++;
+//             cout << fabrica.fabricas_construidas<< endl;
+//             break;
+
+//         case 2:
+//             escuela.escuelas_construidas ++;
+//             break;
+
+//         case 3:
+//             yacimiento.yacimientos_construidas ++;
+//             break;
+
+//         case 4:
+//             mina.minas_construidas ++;
+//             break ;    
+
+//         case 5:
+//             obelisco.obeliscos_construidas ++;
+//             break;   
+
+//         case 6:
+//             planta.plantas_construidas ++;
+//             break;
+//     }
+// }

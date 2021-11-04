@@ -14,6 +14,8 @@ class Edificio
         int cantidad_madera;
         int cantidad_metal;
         int maximo_permitidos;
+        int cantidad_construidos;
+
         
         
 

@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {   
     int opcion = 0;
-    //vectores new
+    Ciudad* datos_ciudad = new Ciudad;
 
     Inventario inventario;
     Ciudad ciudad;
@@ -23,7 +23,7 @@ int main()
     validar_opcion_elegida(opcion);
     do
     {
-        procesar_opcion(opcion);
+        procesar_opcion(opcion, datos_ciudad);
         mostrar_menu();
         opcion = pedir_opcion();
         validar_opcion_elegida(opcion);
