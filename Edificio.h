@@ -19,9 +19,6 @@ class Edificio
     public:
         friend class Ciudad;
 
-        
-        
-
 };  
 
 

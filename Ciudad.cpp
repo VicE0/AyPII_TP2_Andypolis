@@ -104,8 +104,6 @@ void Ciudad::mostrar_edificios_construidos(Ciudad* datos_ciudad)
     
 }
 
-
-// --------------------------------------------------------------------
   
 int Ciudad::obtener_posicion(string ingresar_edificio_construir)
 {
