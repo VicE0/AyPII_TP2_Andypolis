@@ -1,6 +1,0 @@
-oblisco ()
-escuela ()
-mina ()
-yacimiento ()
-iglesia ()
-plantaelectrica ()
