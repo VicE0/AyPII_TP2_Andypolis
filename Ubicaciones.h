@@ -3,7 +3,10 @@
 
 #include "Ubicacion.h"
 
+
 const int MAX_UBICACIONES = 100;
+const int MAX_EDIFICIOS_U = 100;
+
 
 class Ubicaciones
 {
@@ -15,7 +18,10 @@ class Ubicaciones
         Ubicaciones();
         void leer_ubicaciones();
         void cargar_ubicaciones(std::string nombre, std::string ancho, std::string alto);
-        void consultar_coordenada();
+
+        
+        
+        
 
 };
 

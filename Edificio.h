@@ -8,7 +8,7 @@ using namespace std;
 
 class Edificio
 {
-    protected:
+    public:
         string nombre_edificio;
         int cantidad_piedra;
         int cantidad_madera;
@@ -16,8 +16,7 @@ class Edificio
         int maximo_permitidos;
         int cantidad_construidos;
 
-    public:
-        friend class Ciudad;
+
 
 };  
 

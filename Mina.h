@@ -6,7 +6,7 @@
 class Mina : public Edificio
 {
     public:
-        int minas_construidas;
+        Mina();
 };
 
 

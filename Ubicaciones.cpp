@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -20,7 +19,7 @@ void Ubicaciones::leer_ubicaciones()
     ifstream archivo_ubicaciones;
     archivo_ubicaciones.open(PATH_UBICACIONES.c_str());
 
-    string nombre;
+    string nombre_edificio_construido;
     string ancho;
     string alto;
  
@@ -30,42 +29,26 @@ void Ubicaciones::leer_ubicaciones()
         exit(1);        
     }
 
-    while (archivo_ubicaciones >> nombre)
+    while (archivo_ubicaciones >> nombre_edificio_construido)
     {
 
         archivo_ubicaciones >> ancho;
         archivo_ubicaciones >> alto;
-        
-        // getline(archivo_ubicaciones, nombre, '(');
-        // getline(archivo_ubicaciones, ancho, ',');
-        // getline(archivo_ubicaciones, alto, ')');
-        // getline(archivo_ubicaciones, aux);
 
-        this -> cargar_ubicaciones(nombre, ancho, alto);
+        this -> cargar_ubicaciones(nombre_edificio_construido, ancho, alto);
 
     }
     archivo_ubicaciones.close();
     
 }
 
-void Ubicaciones::cargar_ubicaciones(string nombre, string ancho, string alto)
+void Ubicaciones::cargar_ubicaciones(string nombre_edificio_construido, string ancho, string alto)
 {
     this -> ubicaciones[cantidad_ubicaciones] = new Coordenadas();
-    this -> ubicaciones[cantidad_ubicaciones] -> nombre = nombre;
+    this -> ubicaciones[cantidad_ubicaciones] -> nombre_edificio_construido = nombre_edificio_construido;
     this -> ubicaciones[cantidad_ubicaciones] -> ancho = ancho;
     this -> ubicaciones[cantidad_ubicaciones] -> alto = alto;
     
-
     cantidad_ubicaciones++;
 }
 
-void Ubicaciones::consultar_coordenada()
-{
-    for(int i = 0; i < cantidad_ubicaciones; i++)
-    {
-        cout << this -> ubicaciones[i] -> nombre << endl;
-        cout << this -> ubicaciones[i] -> ancho << endl;
-        cout << this -> ubicaciones[i] -> alto << endl;
-        cout << this -> ubicaciones[i] -> aux << endl;
-    }
-}

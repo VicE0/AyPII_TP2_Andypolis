@@ -4,18 +4,13 @@
 #include <iostream>
 #include <fstream>
 
-
-class Coordenadas
+class Coordenadas 
 {
-    protected:
-        std::string nombre;
+    public:
+        std::string nombre_edificio_construido;
         std::string alto;
         std::string ancho;
-        std::string aux;
-
-    public:
-        friend class Ubicaciones;
-
+        
 };
 
 

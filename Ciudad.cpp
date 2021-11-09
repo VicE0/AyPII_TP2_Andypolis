@@ -11,15 +11,20 @@ const string METAL = "metal";
 using namespace std;
 
 const string PATH_EDIFICIOS = "edificios.txt";
+const string PATH_UBICACIONES = "ubicaciones.txt";
 
 Ciudad::Ciudad()
 {
     this -> cantidad_edificios = 0;
+    this -> cantidad_ubicaciones = 0;
     this -> leer_archivo_edificios();
+    this ->leer_ubicaciones();
+    
 }
 
 void Ciudad::leer_archivo_edificios()
 {
+
     ifstream archivo_edificios;
 
     archivo_edificios.open(PATH_EDIFICIOS.c_str());
@@ -52,18 +57,63 @@ void Ciudad::leer_archivo_edificios()
 }
 
 
+
+void Ciudad::leer_ubicaciones()
+{
+    ifstream archivo_ubicaciones;
+    archivo_ubicaciones.open(PATH_UBICACIONES.c_str());
+
+    string nombre_edificio_construido;
+    string ancho;
+    string alto;
+ 
+    if (!archivo_ubicaciones)
+    {
+        cout<<"No se pudo leer el archivo: "<<PATH_UBICACIONES<<endl;
+        exit(1);        
+    }
+
+    while (archivo_ubicaciones >> nombre_edificio_construido)
+    {
+
+        archivo_ubicaciones >> ancho;
+        archivo_ubicaciones >> alto;
+
+        this -> cargar_ubicaciones(nombre_edificio_construido, ancho, alto);
+
+    }
+    archivo_ubicaciones.close();
+    
+}
+
+
+void Ciudad::cargar_ubicaciones(string nombre_edificio_construido, string ancho, string alto)
+{
+    this -> ubicaciones[cantidad_ubicaciones] = new Coordenadas();
+    this -> ubicaciones[cantidad_ubicaciones] -> nombre_edificio_construido = nombre_edificio_construido;
+    this -> ubicaciones[cantidad_ubicaciones] -> ancho = ancho;
+    this -> ubicaciones[cantidad_ubicaciones] -> alto = alto;
+    
+    cantidad_ubicaciones++;
+}
+
+
 void Ciudad::cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos)
 {
-
-        this -> edificios[cantidad_edificios] = new Edificio();
-        this -> edificios[cantidad_edificios]-> nombre_edificio = nombre_edificio;
-        this -> edificios[cantidad_edificios]-> cantidad_piedra = cantidad_piedra;
-        this -> edificios[cantidad_edificios]-> cantidad_madera = cantidad_madera;
-        this -> edificios[cantidad_edificios]-> cantidad_metal = cantidad_metal;
-        this -> edificios[cantidad_edificios]-> maximo_permitidos = maximo_permitidos;
-        this -> edificios[cantidad_edificios] -> cantidad_construidos = 0;
-        cantidad_edificios++;
+    
+    this -> edificios[cantidad_edificios] = new Edificio();
+    this -> edificios[cantidad_edificios]-> nombre_edificio = nombre_edificio;
+    this -> edificios[cantidad_edificios]-> cantidad_piedra = cantidad_piedra;
+    this -> edificios[cantidad_edificios]-> cantidad_madera = cantidad_madera;
+    this -> edificios[cantidad_edificios]-> cantidad_metal = cantidad_metal;
+    this -> edificios[cantidad_edificios]-> maximo_permitidos = maximo_permitidos;
+    this -> edificios[cantidad_edificios] -> cantidad_construidos = 0;
+    cantidad_edificios++;
 }
+
+
+
+//-------------------------OPCIONES DEL MENU----------------------------------------- 
 
 
 void Ciudad::mostrar_totalidad_edificios(Ciudad* datos_ciudad)
@@ -78,6 +128,7 @@ void Ciudad::mostrar_totalidad_edificios(Ciudad* datos_ciudad)
         cout << "\t"<< "METAL : "<< datos_ciudad -> edificios[i]-> cantidad_metal << " unidades necesarias" <<endl;
         cout << "\t"<< "CONSTRUIDOS: " << datos_ciudad -> edificios[i] -> cantidad_construidos <<endl;
         cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (datos_ciudad -> edificios[i]-> maximo_permitidos)<<endl; 
+        //agregar tipo material que dan aaaaaaaaaaaaaaaaa
         cout << "|-----------------------------------|" << endl;
         cout << "\n"; 
 
@@ -85,21 +136,21 @@ void Ciudad::mostrar_totalidad_edificios(Ciudad* datos_ciudad)
 
 }
 
-void Ciudad::mostrar_edificios_construidos(Ciudad* datos_ciudad)
+void Ciudad::mostrar_edificios_construidos(Ciudad* datos_ubicaciones, Ciudad* datos_ciudad)
 {
-    for (int i = 0; i < cantidad_edificios; i++)
+
+    for (int i = 0; i < cantidad_ubicaciones; i++)
     {
-        if (datos_ciudad -> edificios[i] -> cantidad_construidos > 0)
-        {
-            cout << "\n"; 
-            cout << "|-----------------------------------|" << endl;
-            cout << "\t"<< "EDIFICIO: "<< datos_ciudad -> edificios[i]-> nombre_edificio  << endl;
-            cout << "\t"<< "CONSTRUIDOS: " << datos_ciudad -> edificios[i] -> cantidad_construidos <<endl;
-            cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (datos_ciudad -> edificios[i]-> maximo_permitidos - datos_ciudad -> edificios[i] -> cantidad_construidos)<<endl; 
-            //agregar coordenadas
-            cout << "|-----------------------------------|" << endl;
-            cout << "\n"; 
-        }
+        cout << "\n"; 
+        cout << "|-----------------------------------|" << endl;
+        cout << "\t"<< "EDIFICIO: "<< datos_ubicaciones -> ubicaciones[i]-> nombre_edificio_construido  << endl;
+        cout << "\t"<< "COORDENADAS: "<< datos_ubicaciones -> ubicaciones[i] -> ancho << datos_ubicaciones ->ubicaciones[i] ->alto << endl;
+        cout << "\t"<< "CONSTRUIDOS: " << datos_ciudad -> edificios[i] -> cantidad_construidos <<endl;
+        cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (datos_ciudad -> edificios[i]-> maximo_permitidos - datos_ciudad -> edificios[i] -> cantidad_construidos)<<endl; 
+        cout << "|-----------------------------------|" << endl;
+        cout << "\n"; 
+                       
+        
     }
     
 }
@@ -175,3 +226,5 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material, Ciudad*
 
     }
 }
+
+//BUSCAR FORMA DE CONTAR CONSTRUIDOS

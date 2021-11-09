@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 void mostrar_menu()
 {
     
@@ -48,18 +46,19 @@ void validar_opcion_elegida(int &opcion_elegida)
     }
 }
 
-void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material) 
+void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material, Ciudad* datos_ubicaciones) 
 {
     Inventario inventario;
     Ciudad ciudad;
 
-    Aserradero aserradero;
-    Fabrica fabrica;
-    Escuela escuela;
-    Yacimiento yacimiento;
-    Mina mina;
-    Obelisco obelisco;
-    Planta planta;
+    
+    // Aserradero aserradero;
+    // Fabrica fabrica;
+    // Escuela escuela;
+    // Yacimiento yacimiento;
+    // Mina mina;
+    // Obelisco obelisco;
+    // Planta planta;
 
 
     string ingresar_edificio_construir;
@@ -75,7 +74,8 @@ void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_materia
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
-            ciudad.mostrar_edificios_construidos(datos_ciudad); 
+            
+            ciudad.mostrar_edificios_construidos(datos_ubicaciones,datos_ciudad);
             break;
 
         case LISTAR_TODOS_EDIFICIOS:

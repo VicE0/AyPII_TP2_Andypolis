@@ -44,6 +44,6 @@ void validar_opcion_elegida(int &opcion_elegida);
 
 //Precondiciones: La opcion es valida.
 //Postcondiciones: Realiza la opcion indicada.
-void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material);
+void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material, Ciudad* datos_ubicaciones);
 
 #endif //MENU_H
