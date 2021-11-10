@@ -8,6 +8,18 @@ const string PIEDRA = "piedra";
 const string MADERA = "madera";
 const string METAL = "metal";
 
+const string PLANTA = "planta";
+
+
+const string MINA = "mina";
+const string ASERRADERO = "aserradero";
+const string ESCUELA = "escuela";
+const string FABRICA = "fabrica";
+const string OBELISCO = "obelisco";
+
+const string YES = "y";
+
+
 using namespace std;
 
 const string PATH_EDIFICIOS = "edificios.txt";
@@ -44,7 +56,7 @@ void Ciudad::leer_archivo_edificios()
 
     while (archivo_edificios >> nombre_edificio) //cargo el array
     {
-        if (nombre_edificio == "planta")
+        if (nombre_edificio == PLANTA)
         {
             archivo_edificios >> segundo_nombre;
             nombre_edificio += ' ' + segundo_nombre;
@@ -81,7 +93,7 @@ void Ciudad::leer_ubicaciones()
 
     while (archivo_ubicaciones >> nombre_edificio_construido)
     {
-        if (nombre_edificio_construido == "planta")
+        if (nombre_edificio_construido == PLANTA)
         {
             archivo_ubicaciones >> segundo_nombre;
             nombre_edificio_construido += ' ' + segundo_nombre;
@@ -100,23 +112,23 @@ void Ciudad::leer_ubicaciones()
 void Ciudad::cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos)
 {
    
-    if(nombre_edificio == "mina")
+    if(nombre_edificio == MINA)
     {
         this -> edificios[cantidad_edificios] = new Mina(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
     }
-    else if (nombre_edificio == "aserradero")
+    else if (nombre_edificio == ASERRADERO)
     {
         this -> edificios[cantidad_edificios] = new Aserradero(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
     }
-    else if (nombre_edificio == "escuela")
+    else if (nombre_edificio == ESCUELA)
     {
         this -> edificios[cantidad_edificios] = new Escuela(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
     }
-    else if (nombre_edificio == "fabrica")
+    else if (nombre_edificio == FABRICA)
     {
         this -> edificios[cantidad_edificios] = new Fabrica(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
     }
-    else if (nombre_edificio == "obelisco")
+    else if (nombre_edificio == OBELISCO)
     {
         this -> edificios[cantidad_edificios] = new Obelisco(nombre_edificio, cantidad_piedra, cantidad_madera, cantidad_metal, maximo_permitidos);
     }
@@ -132,23 +144,23 @@ void Ciudad::cargar_edificios(string nombre_edificio, int cantidad_piedra, int c
 
 void Ciudad::cargar_ubicaciones(string nombre_edificio_construido ,string ancho,string alto)
 {
-    if(nombre_edificio_construido == "mina")
+    if(nombre_edificio_construido == MINA)
     {
         this -> ubicaciones[cantidad_ubicaciones] = new Mina(nombre_edificio_construido, ancho, alto);
     }
-    else if (nombre_edificio_construido == "aserradero")
+    else if (nombre_edificio_construido == ASERRADERO)
     {
         this -> ubicaciones[cantidad_ubicaciones] = new Aserradero(nombre_edificio_construido, ancho, alto);
     }
-    else if (nombre_edificio_construido == "escuela")
+    else if (nombre_edificio_construido == ESCUELA)
     {
         this -> ubicaciones[cantidad_ubicaciones] = new Escuela(nombre_edificio_construido, ancho, alto);
     }
-    else if (nombre_edificio_construido == "fabrica")
+    else if (nombre_edificio_construido == FABRICA)
     {
         this -> ubicaciones[cantidad_ubicaciones] = new Fabrica(nombre_edificio_construido, ancho, alto);
     }
-    else if (nombre_edificio_construido == "obelisco")
+    else if (nombre_edificio_construido == OBELISCO)
     {
         this -> ubicaciones[cantidad_ubicaciones] = new Obelisco(nombre_edificio_construido, ancho, alto);
     }
@@ -244,7 +256,7 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
         cout << "Estás seguro que deseas construir? [y/n]" << endl;
         cin >> decision;
 
-        if(decision == "y")
+        if(decision == YES)
         {
             piedra -> cantidad -= this -> edificios[posicion] -> obtener_piedra();
             madera -> cantidad -= this -> edificios[posicion] -> obtener_madera();
