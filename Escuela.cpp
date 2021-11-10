@@ -1,5 +1,8 @@
 #include "Escuela.h"
 
+const int MATERIALES_BRINDADAS_NULA = 0;
+
+
 Escuela::Escuela(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal,int maximo_permitidos)
 {
     this -> nombre_edificio = nombre_edificio;
@@ -19,7 +22,7 @@ Escuela::Escuela(string nombre_edificio_construido, string ancho, string alto)
 
 int Escuela::obtener_recursos()
 {
-    return this -> recursos = 0;
+    return this -> recursos = MATERIALES_BRINDADAS_NULA;
 }
 
 int Escuela::obtener_construidos()

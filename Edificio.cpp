@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 Edificio::Edificio(){}
 
 string Edificio::obtener_nombre()

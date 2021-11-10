@@ -54,7 +54,7 @@ void Ciudad::leer_archivo_edificios()
         exit(1);
     }
 
-    while (archivo_edificios >> nombre_edificio) //cargo el array
+    while (archivo_edificios >> nombre_edificio)
     {
         if (nombre_edificio == PLANTA)
         {
