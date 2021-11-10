@@ -31,22 +31,19 @@ class Ciudad
 
         void leer_ubicaciones();
 
-        // void cargar_ubicaciones(std::string nombre, std::string ancho, std::string alto);
+        void cargar_ubicaciones(std::string nombre_edificio_construido, std::string ancho, std::string alto);
 
-        void cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos);
-
-
-
-
-        int obtener_posicion(string ingresar_edificio_construir);
-
-        string pedir_edificio();
+        void cargar_edificios(std::string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos);
 
         void mostrar_totalidad_edificios();
 
         void mostrar_edificios_construidos();
 
-        void construir_edificio(int posicion,Inventario* datos_material, Ciudad* datos_ciudad, Ciudad* datos_ubicaciones);
+        int obtener_posicion(string ingresar_edificio_construir);
+
+        string pedir_edificio();
+
+        void construir_edificio(int posicion, Inventario* datos_material);
 
         void guardar_edificios();
 

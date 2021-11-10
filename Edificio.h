@@ -37,6 +37,8 @@ class Edificio
 
         virtual void mostrar_edificios() = 0;
 
+        // virtual void mostrar_construidos() = 0;
+
         // virtual ~Edificio();
 
 };  

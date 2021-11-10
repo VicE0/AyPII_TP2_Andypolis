@@ -10,6 +10,13 @@ Escuela::Escuela(string nombre_edificio, int cantidad_piedra, int cantidad_mader
     
 }
 
+Escuela::Escuela(string nombre_edificio_construido, string ancho, string alto)
+{
+    this -> nombre_edificio_construido = nombre_edificio_construido;
+    this -> ancho = ancho;
+    this -> alto = alto;
+}
+
 int Escuela::obtener_recursos()
 {
     return this -> recursos = 0;
@@ -33,4 +40,14 @@ void Escuela::mostrar_edificios()
     cout << "\t"<< "MATERIAL QUE BRINDA: "<< "no brinda materiales" <<endl; 
     cout << "0-----------------------------------------0" << endl;
     cout << "\n"; 
+}
+
+void Escuela::mostrar_construidos()
+{
+    cout << "\n"; 
+    cout << "0-----------------------------------------0" << endl;
+    cout << "\t"<< "EDIFICIO: "<< this -> nombre_edificio_construido  << endl;
+    cout << "\t"<< "COORDENADAS : "<< this -> ancho << this -> alto <<endl;
+    cout << "0-----------------------------------------0" << endl;
+    cout << "\n";  
 }

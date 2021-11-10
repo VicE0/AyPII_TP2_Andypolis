@@ -53,16 +53,19 @@ void procesar_opcion(int opcion, Inventario* datos_material)
     
     
 
-    // string ingresar_edificio_construir;
-    // int posicion;
+    string ingresar_edificio_construir;
+    int posicion;
 
     switch (opcion) 
     {
         case CONSTRUIR_EDIFICIO:
+            ingresar_edificio_construir = ciudad.pedir_edificio();
+            posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
+            ciudad.construir_edificio(posicion, datos_material);
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
-            
+            ciudad.mostrar_edificios_construidos();
             break;
 
         case LISTAR_TODOS_EDIFICIOS:

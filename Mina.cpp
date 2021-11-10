@@ -10,6 +10,16 @@ Mina::Mina(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int
     
 }
 
+Mina::Mina(string nombre_edificio_construido, string ancho, string alto)
+{
+    this -> nombre_edificio_construido = nombre_edificio_construido;
+    this -> ancho = ancho;
+    this -> alto = alto;
+    this -> cantidad_construidos = 0;
+
+}
+
+
 int Mina::obtener_recursos()
 {
     return this -> recursos = 15;
@@ -33,4 +43,14 @@ void Mina::mostrar_edificios()
     cout << "\t"<< "MATERIAL QUE BRINDA: "<< "PIEDRA" <<endl; 
     cout << "0-----------------------------------------0" << endl;
     cout << "\n"; 
+}
+
+void Mina::mostrar_construidos()
+{
+    cout << "\n"; 
+    cout << "0-----------------------------------------0" << endl;
+    cout << "\t"<< "EDIFICIO: "<< this -> nombre_edificio_construido  << endl;
+    cout << "\t"<< "COORDENADAS : "<< this -> ancho << this -> alto <<endl;
+    cout << "0-----------------------------------------0" << endl;
+    cout << "\n";  
 }
