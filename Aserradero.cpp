@@ -1,5 +1,7 @@
 #include "Aserradero.h"
 
+const int MATERIALES_BRINDADAS_ASERRADERO = 25;
+
 Aserradero::Aserradero(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal,int maximo_permitidos)
 {
     this -> nombre_edificio = nombre_edificio;
@@ -19,7 +21,7 @@ Aserradero::Aserradero(string nombre_edificio_construido, string ancho, string a
 
 int Aserradero::obtener_recursos()
 {
-    return this -> recursos = 25;
+    return this -> recursos = MATERIALES_BRINDADAS_ASERRADERO;
 }
 
 int Aserradero::obtener_construidos()

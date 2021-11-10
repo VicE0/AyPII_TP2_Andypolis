@@ -34,8 +34,6 @@ void Inventario::leer_archivo_materiales()
         this -> materiales[cantidad_materiales]-> cantidad = cantidad;
         cantidad_materiales++; 
     }
-    
-
     archivo_materiales.close();
 
 }
