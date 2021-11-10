@@ -18,6 +18,8 @@ class Planta : public Edificio, public Coordenadas
         void mostrar_edificios();
 
         void mostrar_construidos();
+
+        void mostrar_mensaje_casillero();
 };
 
 

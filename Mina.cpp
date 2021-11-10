@@ -54,3 +54,8 @@ void Mina::mostrar_construidos()
     cout << "0-----------------------------------------0" << endl;
     cout << "\n";  
 }
+
+void Mina::mostrar_mensaje_casillero()
+{
+    cout << "Soy una Mina y me encuentro en el casillero consultado" <<endl;
+}

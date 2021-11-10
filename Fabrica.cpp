@@ -51,3 +51,9 @@ void Fabrica::mostrar_construidos()
     cout << "0-----------------------------------------0" << endl;
     cout << "\n";  
 }
+
+
+void Fabrica::mostrar_mensaje_casillero()
+{
+    cout << "Soy una Fabrica y me encuentro en el casillero consultado" <<endl;
+}

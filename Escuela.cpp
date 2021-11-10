@@ -51,3 +51,9 @@ void Escuela::mostrar_construidos()
     cout << "0-----------------------------------------0" << endl;
     cout << "\n";  
 }
+
+
+void Escuela::mostrar_mensaje_casillero()
+{
+    cout << "Soy una Escuela y me encuentro en el casillero consultado" <<endl;
+}

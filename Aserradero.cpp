@@ -51,3 +51,8 @@ void Aserradero::mostrar_construidos()
     cout << "0-----------------------------------------0" << endl;
     cout << "\n";  
 }
+
+void Aserradero::mostrar_mensaje_casillero()
+{
+    cout << "Soy un Aserradero y me encuentro en el casillero consultado" <<endl;
+}

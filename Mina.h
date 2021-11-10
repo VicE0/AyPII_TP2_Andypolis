@@ -19,6 +19,8 @@ class Mina : public Edificio, public Coordenadas
 
         void mostrar_construidos();
 
+        void mostrar_mensaje_casillero();
+
         // virtual ~Mina();
 
     

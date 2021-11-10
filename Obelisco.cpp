@@ -51,3 +51,9 @@ void Obelisco::mostrar_construidos()
     cout << "0-----------------------------------------0" << endl;
     cout << "\n";  
 }
+
+
+void Obelisco::mostrar_mensaje_casillero()
+{
+    cout << "Soy un Obelisco y me encuentro en el casillero consultado" <<endl;
+}
