@@ -50,12 +50,12 @@ void procesar_opcion(int opcion, Inventario* datos_material)
 {
     Inventario inventario;
     Ciudad ciudad;
-    Mapa mapa;
+    // Mapa mapa;
     
     string ingresar_edificio_construir;
     int posicion;
-    int x;
-    int y;
+    // int x;
+    // int y;
 
     switch (opcion) 
     {
@@ -77,13 +77,13 @@ void procesar_opcion(int opcion, Inventario* datos_material)
             break;
 
         case MOSTRAR_MAPA:
-            mapa.mostrar_mapa();
+            // mapa.mostrar_mapa();
             break;
 
         case CONSULTAR_COORDENADA:
-            x = mapa.pedir_coordenada_x();
-            y = mapa.pedir_coordenada_x();
-            mapa.consultar_coordenada(x, y);
+            // x = mapa.pedir_coordenada_x();
+            // y = mapa.pedir_coordenada_x();
+            // mapa.consultar_coordenada(x, y);
             break;
 
         case MOSTRAR_INVENTARIO:
@@ -91,6 +91,10 @@ void procesar_opcion(int opcion, Inventario* datos_material)
             break;
         
         case RECOLECTAR_RECURSOS:
+            cout << "¿De cual edificio desea recolectar?" << endl;
+            ingresar_edificio_construir = ciudad.pedir_edificio();
+            posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
+            ciudad.recolectar_recursos(posicion, datos_material);
             break;
 
         case LLUVIA_RECURSOS:

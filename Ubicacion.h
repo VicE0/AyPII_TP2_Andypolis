@@ -9,6 +9,8 @@ class Coordenadas
         std::string ancho;
 
     public:
+        //PRE: ~
+        //POST: Muestra todos los datos del archivo ubicaciones.txt
         virtual void mostrar_construidos() = 0;           
 };
 

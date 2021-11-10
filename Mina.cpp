@@ -17,7 +17,6 @@ Mina::Mina(string nombre_edificio_construido, string ancho, string alto)
     this -> nombre_edificio_construido = nombre_edificio_construido;
     this -> ancho = ancho;
     this -> alto = alto;
-    this -> cantidad_construidos = 0;
 
 }
 
@@ -29,7 +28,7 @@ int Mina::obtener_recursos()
 
 int Mina::obtener_construidos()
 {
-    return this -> cantidad_construidos;
+    return this -> cantidad_construidos = 1;
 }
 
 void Mina::mostrar_edificios()

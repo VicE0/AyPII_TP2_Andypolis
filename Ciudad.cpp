@@ -231,6 +231,7 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
 {  
 
     string decision;
+    int construidos = this ->edificios[posicion] ->obtener_construidos();
     Inventario inventario;
 
     Material* piedra = inventario.obtener_material(PIEDRA,datos_material);
@@ -244,7 +245,7 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
         cout << "No hay materiales suficientes para completar la construcción." << endl;
     }
 
-    else if(this -> edificios[posicion] -> obtener_construidos() == this -> edificios[posicion] -> obtener_permitidos())
+    else if(construidos == this -> edificios[posicion] -> obtener_permitidos())
     {
         cout << "Ya se alcanzó el máximo permitido de construccion" << endl;
     }
@@ -253,7 +254,7 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
     else //falta coordenadas
     {   
 
-        cout << "Estás seguro que deseas construir? [y/n]" << endl;
+        cout << "Estás seguro que deseas construir? [y/n]: " ;
         cin >> decision;
 
         if(decision == YES)
@@ -263,6 +264,8 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
             metal -> cantidad -= this -> edificios[posicion] -> obtener_metal();
 
             cout << "Edificio construido con éxito." <<endl;
+
+           construidos++;
          
         }
 
@@ -271,6 +274,37 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
             cout << "No se realizó la construcción."<<endl;
         }
 
+    }
+}
+
+
+void Ciudad::recolectar_recursos(int posicion, Inventario* datos_material)
+{
+    Inventario inventario;
+
+    Material* piedra = inventario.obtener_material(PIEDRA,datos_material);
+    Material* madera = inventario.obtener_material(MADERA,datos_material);
+    Material* metal = inventario.obtener_material(METAL,datos_material);
+
+    if(this -> edificios[posicion] -> obtener_nombre() == "mina" && this ->edificios[posicion] ->obtener_construidos() > 0)
+    {
+        piedra ->cantidad += this -> edificios[posicion] -> obtener_recursos();
+        cout << "Recibes " << this -> edificios[posicion] -> obtener_recursos() << " de piedra" << endl;
+    }
+
+    else if (this -> edificios[posicion] -> obtener_nombre() == "aserradero" && this ->edificios[posicion] ->obtener_construidos() > 0)
+    {
+        madera ->cantidad += this -> edificios[posicion] ->obtener_madera();
+        cout << "Recibes " << this -> edificios[posicion] -> obtener_recursos() << " de madera" << endl;
+    }
+    else if(this -> edificios[posicion] -> obtener_nombre() == "fabrica" && this ->edificios[posicion] ->obtener_construidos() > 0 )
+    {
+        metal -> cantidad += this -> edificios[posicion] ->obtener_metal();
+        cout << "Recibes " << this -> edificios[posicion] -> obtener_recursos() << " de metal" << endl;
+    }
+    else
+    {
+        cout << "No hay edificios construidos que brinden materiales" << endl;
     }
 }
 

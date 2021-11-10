@@ -11,14 +11,24 @@ class Planta : public Edificio, public Coordenadas
 
         Planta(string nombre_edificio_construido, string ancho, string alto);
 
+        //PRE: ~
+        //POST: Devuelve los materiales producidos por los edificios  
         int obtener_recursos();
 
+        //PRE: ~
+        //POST: Devuelve la cantidad de edificios que se construyeron
         int obtener_construidos();
 
+        //PRE: ~
+        //POST: Muestra todos los datos del archivo edificios.txt
         void mostrar_edificios();
 
+        //PRE: ~
+        //POST: Muestra todos los datos del archivo ubicaciones.txt
         void mostrar_construidos();
 
+        //PRE: ~
+        //POST: Muestra el mensaje que le corresponde al edificio en los casilleros
         void mostrar_mensaje_casillero();
 };
 
