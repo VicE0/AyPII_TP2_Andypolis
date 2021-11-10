@@ -50,11 +50,12 @@ void procesar_opcion(int opcion, Inventario* datos_material)
 {
     Inventario inventario;
     Ciudad ciudad;
+    Mapa mapa;
     
-    
-
     string ingresar_edificio_construir;
     int posicion;
+    int x;
+    int y;
 
     switch (opcion) 
     {
@@ -76,9 +77,13 @@ void procesar_opcion(int opcion, Inventario* datos_material)
             break;
 
         case MOSTRAR_MAPA:
+            mapa.mostrar_mapa();
             break;
 
         case CONSULTAR_COORDENADA:
+            x = mapa.pedir_coordenada_x();
+            y = mapa.pedir_coordenada_x();
+            mapa.consultar_coordenada(x, y);
             break;
 
         case MOSTRAR_INVENTARIO:
