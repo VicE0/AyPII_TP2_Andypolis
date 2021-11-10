@@ -6,7 +6,13 @@
 class Obelisco : public Edificio
 {
     public:
-        int obeliscos_construidas;
+        Obelisco(std::string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal,int maximo_permitidos);
+
+        int obtener_recursos();
+
+        int obtener_construidos();
+
+        void mostrar_edificios();
 };
 
 

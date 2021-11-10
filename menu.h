@@ -9,7 +9,6 @@
 #include "Fabrica.h"
 #include "Obelisco.h"
 #include "Planta.h"
-#include "Yacimiento.h"
 #include "Mina.h"
 
 const int OPCIONES_VALIDAS = 11;
@@ -44,6 +43,6 @@ void validar_opcion_elegida(int &opcion_elegida);
 
 //Precondiciones: La opcion es valida.
 //Postcondiciones: Realiza la opcion indicada.
-void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material, Ciudad* datos_ubicaciones);
+void procesar_opcion(int opcion, Inventario* datos_material);
 
 #endif //MENU_H

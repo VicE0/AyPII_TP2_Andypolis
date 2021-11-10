@@ -5,8 +5,13 @@
 #include "Ubicacion.h"
 #include "Inventario.h"
 
-
 #include "Mina.h"
+#include "Aserradero.h"
+#include "Escuela.h"
+#include "Fabrica.h"
+#include "Obelisco.h"
+#include "Planta.h"
+
 
 const int MAX_EDIFICIOS = 100;
 const int MAX_UBICACIONES = 100;
@@ -26,7 +31,7 @@ class Ciudad
 
         void leer_ubicaciones();
 
-        void cargar_ubicaciones(std::string nombre, std::string ancho, std::string alto);
+        // void cargar_ubicaciones(std::string nombre, std::string ancho, std::string alto);
 
         void cargar_edificios(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal, int maximo_permitidos);
 
@@ -37,12 +42,11 @@ class Ciudad
 
         string pedir_edificio();
 
+        void mostrar_totalidad_edificios();
 
-        void mostrar_totalidad_edificios(Ciudad* datos_ciudad);
+        void mostrar_edificios_construidos();
 
-        void mostrar_edificios_construidos(Ciudad* datos_ubicaciones,Ciudad* datos_ciudad);
-
-        void construir_edificio(int posicion,Inventario* datos_material, Ciudad* datos_ciudad);
+        void construir_edificio(int posicion,Inventario* datos_material, Ciudad* datos_ciudad, Ciudad* datos_ubicaciones);
 
         void guardar_edificios();
 

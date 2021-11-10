@@ -1,6 +1,6 @@
-#include "Mina.h"
+#include "Escuela.h"
 
-Mina::Mina(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal,int maximo_permitidos)
+Escuela::Escuela(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int cantidad_metal,int maximo_permitidos)
 {
     this -> nombre_edificio = nombre_edificio;
     this -> cantidad_piedra = cantidad_piedra;
@@ -10,17 +10,17 @@ Mina::Mina(string nombre_edificio, int cantidad_piedra, int cantidad_madera, int
     
 }
 
-int Mina::obtener_recursos()
+int Escuela::obtener_recursos()
 {
-    return this -> recursos = 15;
+    return this -> recursos = 0;
 }
 
-int Mina::obtener_construidos()
+int Escuela::obtener_construidos()
 {
     return this -> cantidad_construidos;
 }
 
-void Mina::mostrar_edificios()
+void Escuela::mostrar_edificios()
 {
     cout << "\n"; 
     cout << "0-----------------------------------------0" << endl;
@@ -30,7 +30,7 @@ void Mina::mostrar_edificios()
     cout << "\t"<< "METAL : "<< this -> cantidad_metal << " unidades necesarias" <<endl;
     cout << "\t"<< "CONSTRUIDOS: " << this -> cantidad_construidos <<endl;
     cout << "\t"<< "AUN SE PUEDEN CONSTRUIR: "<< (this -> maximo_permitidos - this -> cantidad_construidos)<<endl; 
-    cout << "\t"<< "MATERIAL QUE BRINDA: "<< "PIEDRA" <<endl; 
+    cout << "\t"<< "MATERIAL QUE BRINDA: "<< "no brinda materiales" <<endl; 
     cout << "0-----------------------------------------0" << endl;
     cout << "\n"; 
 }

@@ -10,6 +10,7 @@ class Coordenadas
         std::string nombre_edificio_construido;
         std::string alto;
         std::string ancho;
+        int cantidad_construidos;
         
 };
 

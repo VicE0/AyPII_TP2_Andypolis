@@ -46,40 +46,27 @@ void validar_opcion_elegida(int &opcion_elegida)
     }
 }
 
-void procesar_opcion(int opcion, Ciudad* datos_ciudad, Inventario* datos_material, Ciudad* datos_ubicaciones) 
+void procesar_opcion(int opcion, Inventario* datos_material) 
 {
     Inventario inventario;
     Ciudad ciudad;
-
     
-    // Aserradero aserradero;
-    // Fabrica fabrica;
-    // Escuela escuela;
-    // Yacimiento yacimiento;
-    // Mina mina;
-    // Obelisco obelisco;
-    // Planta planta;
-
-
-    string ingresar_edificio_construir;
     
-    int posicion;
+
+    // string ingresar_edificio_construir;
+    // int posicion;
 
     switch (opcion) 
     {
         case CONSTRUIR_EDIFICIO:
-            ingresar_edificio_construir = ciudad.pedir_edificio();
-            posicion = ciudad.obtener_posicion(ingresar_edificio_construir);
-            ciudad.construir_edificio(posicion, datos_material, datos_ciudad);           
             break;
 
         case LISTAR_EDIFICIOS_CONSTRUIDOS:
             
-            ciudad.mostrar_edificios_construidos(datos_ubicaciones,datos_ciudad);
             break;
 
         case LISTAR_TODOS_EDIFICIOS:
-            ciudad.mostrar_totalidad_edificios(datos_ciudad);
+            ciudad.mostrar_totalidad_edificios();
             break;
 
         case DEMOLER_EDIFICIO:
