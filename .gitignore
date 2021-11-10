@@ -1,2 +1,4 @@
 .vscode/
 .valgrind-out.txt
+.a
+.ejecutable
