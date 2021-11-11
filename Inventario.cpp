@@ -44,6 +44,7 @@ void Inventario::leer_archivo_materiales()
 
 void Inventario::mostrar_materiales(Inventario* datos_material)
 {   
+    system(LIMPIAR_PANTALLA);
     cout << "\t      INVENTARIO:" << endl;
     for (int i = 0; i < cantidad_materiales; i++)
     {

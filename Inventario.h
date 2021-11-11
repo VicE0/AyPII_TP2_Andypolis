@@ -1,7 +1,7 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
-
+#include "limpiar_pantalla.h"
 #include "Material.h"
 
 const int MAX_MATERIALES = 10;
@@ -28,10 +28,7 @@ class Inventario
         //POST: Muestra el Inventario
         void mostrar_materiales(Inventario* datos_material);
 
-
-        //PRE: ~
-        //POST: Guarda los cambios del array en el materiales.txt
-        void guardar_materiales();
+    
 
 };
 

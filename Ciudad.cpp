@@ -178,7 +178,8 @@ void Ciudad::cargar_ubicaciones(string nombre_edificio_construido ,string ancho,
 
 
 void Ciudad::mostrar_totalidad_edificios()
-{   
+{  
+    system(LIMPIAR_PANTALLA); 
     for (int i = 0; i < cantidad_edificios; i++)
     {
         this -> edificios[i] -> mostrar_edificios();
@@ -188,6 +189,7 @@ void Ciudad::mostrar_totalidad_edificios()
 
 void Ciudad::mostrar_edificios_construidos()
 {
+    system(LIMPIAR_PANTALLA);
     for (int i = 0; i < cantidad_edificios; i++)
     {
         if (this -> edificios[i] -> obtener_construidos() > 0)
@@ -229,7 +231,7 @@ string Ciudad::pedir_edificio()
 
 void Ciudad::construir_edificio(int posicion,Inventario* datos_material) 
 {  
-
+    system(LIMPIAR_PANTALLA);
     string decision;
     int construidos = this ->edificios[posicion] ->obtener_construidos();
     Inventario inventario;
@@ -280,6 +282,7 @@ void Ciudad::construir_edificio(int posicion,Inventario* datos_material)
 
 void Ciudad::recolectar_recursos(int posicion, Inventario* datos_material)
 {
+    system(LIMPIAR_PANTALLA);
     Inventario inventario;
 
     Material* piedra = inventario.obtener_material(PIEDRA,datos_material);
@@ -306,5 +309,22 @@ void Ciudad::recolectar_recursos(int posicion, Inventario* datos_material)
     {
         cout << "No hay edificios construidos que brinden materiales" << endl;
     }
+}
+
+void Ciudad::guardar_edificios()
+{
+
+    ofstream archivo_edificios(PATH_EDIFICIOS);
+
+    for (int i = 0; i < this -> cantidad_edificios; i++)
+    {
+        archivo_edificios << this ->edificios[i] ->obtener_nombre() << ' ';
+        archivo_edificios << this ->edificios[i] ->obtener_piedra() << ' ';
+        archivo_edificios << this ->edificios[i] ->obtener_madera() << ' ';
+        archivo_edificios << this ->edificios[i] ->obtener_metal() << ' ';;
+        archivo_edificios << this ->edificios[i] ->obtener_permitidos() << '\n';
+    }
+
+
 }
 

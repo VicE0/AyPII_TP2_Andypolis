@@ -1,6 +1,7 @@
 #ifndef CIUDAD_H
 #define CIUDAD_H
 
+#include "limpiar_pantalla.h"
 #include "Edificio.h"
 #include "Ubicacion.h"
 #include "Inventario.h"
@@ -68,8 +69,9 @@ class Ciudad
         void construir_edificio(int posicion, Inventario* datos_material);
 
         //PRE: ~
-        //POST: Guarda los cambios del array en el archivo txt
+        //POST: Guarda los cambios del array en el archivo.txt
         void guardar_edificios();
+
 
 
 };

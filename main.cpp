@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "limpiar_pantalla.h"
 #include "menu.h"
 #include "Ciudad.h"
 #include "Inventario.h"
@@ -33,9 +34,11 @@ int main()
     }while(opcion != SALIR);
 
     cout << "Gracias por jugar!"<<endl;
-    //actualizar archivos
+    
+    ciudad.guardar_edificios();
+
 
     return 0;
 }
 
-//g++ *.cpp -o a -Wall -Werror -Wconversion
+
