@@ -65,7 +65,7 @@ class Mapa
         char obtener_casillero(int x, int y);
 
 
-        // ~Mapa();
+
 };
 
 #endif

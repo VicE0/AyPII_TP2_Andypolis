@@ -8,6 +8,8 @@ const string PATH_MAPA = "mapa.txt";
 
 Mapa::Mapa() 
 {
+    this -> filas = 0;
+    this -> columnas = 0;
     this -> leer_archivo_mapa();
 }
 
@@ -148,18 +150,3 @@ void Mapa::mostrar_mapa()
 	cout << endl;
 
 }
-
-// Mapa::~Mapa() 
-// {
-//     for (int fila = 0; fila < filas; fila++) 
-//     {
-//         for (int columna = 0; columna < columnas; columna++)
-//         {
-//             delete this -> mapa[fila][columna];
-//         }
-
-//         delete [] this -> mapa[fila];
-//     }
-//     delete [] this -> mapa;
-//     this -> mapa = 0;
-// }

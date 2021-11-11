@@ -48,14 +48,14 @@ void validar_opcion_elegida(int &opcion_elegida)
 
 void procesar_opcion(int opcion, Inventario* datos_material) 
 {
+
+    //Las funciones referentes al mapa hacen que se trabe el programa
     Inventario inventario;
     Ciudad ciudad;
-    // Mapa mapa;
     
     string ingresar_edificio_construir;
     int posicion;
-    // int x;
-    // int y;
+
 
     switch (opcion) 
     {
@@ -77,13 +77,12 @@ void procesar_opcion(int opcion, Inventario* datos_material)
             break;
 
         case MOSTRAR_MAPA:
-            // mapa.mostrar_mapa();
+            cout << "Funcion no hecha" << endl;
             break;
 
         case CONSULTAR_COORDENADA:
-            // x = mapa.pedir_coordenada_x();
-            // y = mapa.pedir_coordenada_x();
-            // mapa.consultar_coordenada(x, y);
+            cout <<"Funcion no hecha"<<endl;
+    
             break;
 
         case MOSTRAR_INVENTARIO:
@@ -98,6 +97,7 @@ void procesar_opcion(int opcion, Inventario* datos_material)
             break;
 
         case LLUVIA_RECURSOS:
+            cout << "Funcion no hecha" << endl;
             break;
 
         case SALIR:

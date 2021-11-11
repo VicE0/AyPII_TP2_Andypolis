@@ -3,7 +3,6 @@
 
 #include "Inventario.h"
 #include "Ciudad.h"
-// #include "Mapa.h"
 
 #include "Aserradero.h"
 #include "Escuela.h"
